@@ -1,0 +1,32 @@
+ <node name="auv_handler" output="screen" pkg="imc_ros_interface" type="auv_handler.py">
+    <!-- Messages to listen to from the vehicle, make sure they are included in the
+    bridge_node, and the Backseat TCP connection. -->
+    <param name = "sensor_messages"   value = "[Temperature,Salinity,Depth]" type = "str"/>
+    <!-- Names of the entities publishing the above sensor messages,
+     has to correspond to position in list. -->
+    <param name = "sensors"           value = "[CTD,CTD,Depth Parcel]"  type = "str"/>
+    <!-- The loiter radius in the Follow reference maneuver,
+    used when waiting for a new waypoint at depth or in surface -->
+    <param name = "loiter_radius"     value = "20.0" />
+    <!--How long the vehicle will wait for a Reference-message before timing out -->
+    <param name = "timeout"           value = "60.0" />
+    <!-- How long before connection to vehicle has timed out, heartbeat is published @ 1Hz-->
+    <param name = "heartbeat_timeout" value = "5.0"  />
+ </node>
+
+
+ <node name="auv_governor" output="screen" pkg="adaframe_examples" type="auv_governor_example.py">
+    <!-- Messages to listen to from the vehicle, make sure they are included in the
+    bridge_node, and the Backseat TCP connection. -->
+    <param name = "sensor_messages"   value = "[Temperature,Salinity,Depth]" type = "str"/>
+    <!-- Names of the entities publishing the above sensor messages,
+     has to correspond to position in list. -->
+    <param name = "sensors"           value = "[CTD,CTD,Depth Parcel]"  type = "str"/>
+    <!-- The loiter radius in the Follow reference maneuver,
+    used when waiting for a new waypoint at depth or in surface -->
+    <param name = "loiter_radius"     value = "20.0" />
+    <!--How long the vehicle will wait for a Reference-message before timing out -->
+    <param name = "timeout"           value = "60.0" />
+    <!-- How long before connection to vehicle has timed out, heartbeat is published @ 1Hz-->
+    <param name = "heartbeat_timeout" value = "5.0"  />
+ </node>

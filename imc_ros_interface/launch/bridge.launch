@@ -1,0 +1,12 @@
+<launch>
+
+  <arg name="bridge_addr" default="10.0.10.60"/>
+  <arg name="bridge_port" default="32603"/>
+
+  <node pkg="imc_ros_interface" type="bridge_node" name="imc_bridge" output="screen">
+    <param name="bridge_addr" value="$(arg bridge_addr)"/>
+    <param name="bridge_port" value="$(arg bridge_port)" type="str"/>
+  </node>
+
+
+</launch>
